@@ -23,8 +23,8 @@ Event::listen('render', function ($data) {
 /**
  * Listen for when new Handlebars objects are created so that we can register any required helpers
  */
-Event::listen('twig.init', function ($handlebars) {
-
+Event::listen('twig.init', function ($twig) {
+    $twig->setCache(false);
 });
 
 /**
@@ -35,6 +35,9 @@ Event::listen('twig.init', function ($handlebars) {
 $primer = Primer::start([
     'basePath' => __DIR__.'/..',
     'templateClass' => Rareloop\Primer\TemplateEngine\Twig\Template::class,
+
+    // This enables us to take advantage of Twig's template extension for our templates
+    'wrapTemplate' => false,
 ]);
 
 return $primer;

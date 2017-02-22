@@ -1,0 +1,13 @@
+{% extends "template.twig" %}
+
+{% block content %}
+    {# Include template header #}
+    {# {% include 'components/common/site-header.twig' with header %} #}
+
+    {% block templateContent %}
+        {{ primer.items|raw }}
+    {% endblock %}
+
+    {# Include template footer #}
+    {# {% include 'components/common/site-footer.twig' with footer %} #}
+{% endblock %}
